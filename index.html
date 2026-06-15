@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AnimeWF — Tu anime, sin límites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:        #C0392B;
+      --red-light:  #E74C3C;
+      --red-dim:    #7B1F1F;
+      --black:      #0A0A0A;
+      --surface:    #111111;
+      --surface2:   #1A1A1A;
+      --white:      #F5F5F5;
+      --muted:      #888888;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body:    'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 0 72px;
+      background: linear-gradient(180deg, #6B0000 0%, #1A0000 45%, #0A0A0A 100%);
+      overflow: hidden;
+    }
+
+    /* Grain texture overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* Decorative red vertical stripe */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--red-light), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(192,57,43,0.2);
+      border: 1px solid rgba(192,57,43,0.4);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red-light);
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--red-light);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: clamp(72px, 14vw, 130px);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--white);
+    }
+    .logo span { color: var(--red-light); }
+
+    .tagline {
+      font-size: clamp(15px, 3vw, 18px);
+      color: rgba(245,245,245,0.65);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .btn-download:hover {
+      background: var(--red-light);
+      transform: translateY(-2px);
+    }
+    .btn-download svg { flex-shrink: 0; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .version-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: -8px;
+    }
+
+    /* ─── MOCKUP ────────────────────────────────────────── */
+    .mockup-section {
+      position: relative;
+      background: var(--black);
+      padding: 80px 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .mockup-wrap {
+      position: relative;
+      width: 260px;
+    }
+
+    /* phone frame */
+    .phone-frame {
+      position: relative;
+      background: #1C1C1C;
+      border-radius: 44px;
+      padding: 14px;
+      box-shadow:
+        0 0 0 2px #2A2A2A,
+        0 40px 80px rgba(0,0,0,0.8),
+        0 0 60px rgba(192,57,43,0.15);
+    }
+    .phone-screen {
+      border-radius: 32px;
+      overflow: hidden;
+      display: block;
+      width: 100%;
+    }
+    .phone-screen img {
+      width: 100%;
+      display: block;
+    }
+
+    /* glow beneath phone */
+    .phone-glow {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 60px;
+      background: radial-gradient(ellipse, rgba(192,57,43,0.4) 0%, transparent 70%);
+      filter: blur(20px);
+    }
+
+    /* ─── FEATURES ──────────────────────────────────────── */
+    .features {
+      padding: 80px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red-light);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      margin-bottom: 48px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px;
+      background: #1A1A1A;
+      border: 1px solid #1A1A1A;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      padding: 32px 28px;
+      transition: background 0.2s;
+    }
+    .feature-card:hover { background: var(--surface2); }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(192,57,43,0.15);
+      border: 1px solid rgba(192,57,43,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--red-light);
+    }
+
+    .feature-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── REQUIREMENTS ──────────────────────────────────── */
+    .requirements {
+      padding: 0 24px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .req-box {
+      background: var(--surface);
+      border: 1px solid #222;
+      border-left: 3px solid var(--red);
+      border-radius: 8px;
+      padding: 32px;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .req-item { flex: 1; min-width: 160px; }
+    .req-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .req-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    /* ─── BOTTOM CTA ────────────────────────────────────── */
+    .bottom-cta {
+      padding: 80px 24px 100px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--black) 0%, #1A0000 50%, #0A0A0A 100%);
+    }
+
+    .bottom-cta .logo {
+      font-size: clamp(48px, 10vw, 90px);
+      margin-bottom: 16px;
+    }
+
+    .bottom-cta p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 36px;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid #1A1A1A;
+      padding: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #444;
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--white); }
+
+    /* ─── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero { padding-bottom: 56px; }
+      .features, .requirements { padding-left: 16px; padding-right: 16px; }
+      .req-box { gap: 20px; }
+      .cta-group { flex-direction: column; align-items: center; }
+      .btn-download, .btn-secondary { width: 100%; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .badge-dot { animation: none; }
+      .btn-download, .btn-secondary { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">
+      <span class="badge-dot"></span>
+      Android App — Disponible ahora
+    </span>
+
+    <h1 class="logo">Anime<span>WF</span></h1>
+
+    <p class="tagline">
+      Mira tus animes favoritos con episodios actualizados al momento,
+      explorador completo y horario de emisión semanal. Inicia sesión con Google
+      y guarda tu progreso en todos tus dispositivos.
+    </p>
+
+    <div class="cta-group">
+      <!-- ↓↓↓ REEMPLAZA EL HREF CON EL LINK DIRECTO A TU RELEASE ↓↓↓ -->
+      <!-- Ejemplo: https://github.com/TU_USUARIO/TU_REPO/releases/download/v1.0/AnimeWF.apk -->
+      <a class="btn-download" href="TU_LINK_DEL_APK_AQUÍ" download>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Descargar APK
+      </a>
+      <!-- ↑↑↑ FIN DEL BLOQUE A REEMPLAZAR ↑↑↑ -->
+
+      <a class="btn-secondary" href="#features">Ver características</a>
+    </div>
+
+    <p class="version-note">
+      <!-- REEMPLAZA con tu versión actual, ej: v1.2.0 · ~8 MB -->
+      v1.0.3 &nbsp;·&nbsp; 56.1 MB &nbsp;·&nbsp; Requiere Android 5.0+
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ MOCKUP ═══════════════════════════ -->
+<section class="mockup-section">
+  <div class="mockup-wrap">
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <!-- REEMPLAZA src con tu captura de pantalla si la subes al repo -->
+        <!-- Ejemplo: src="screenshot.png" -->
+        <img src="screenshot.png" alt="Captura de AnimeWF" />
+      </div>
+    </div>
+    <div class="phone-glow"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FEATURES ═══════════════════════════ -->
+<section class="features" id="features">
+  <p class="section-label">Lo que incluye</p>
+  <h2 class="section-title">Todo lo que necesitas,<br>en una sola app</h2>
+
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </div>
+      <p class="feature-title">Episodios al día</p>
+      <p class="feature-desc">Los capítulos más recientes aparecen apenas se publican, con indicador de tiempo.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <p class="feature-title">Explorar catálogo</p>
+      <p class="feature-desc">Busca entre cientos de títulos por género, temporada o popularidad.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+      </div>
+      <p class="feature-title">Horario semanal</p>
+      <p class="feature-desc">Consulta qué animes se emiten cada día para no perderte ningún estreno.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <p class="feature-title">Cuenta con Google</p>
+      <p class="feature-desc">Inicia sesión con tu cuenta Google. Tus favoritos e historial se sincronizan automáticamente.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════ REQUIREMENTS ═══════════════════════════ -->
+<section class="requirements">
+  <div class="req-box">
+    <div class="req-item">
+      <p class="req-label">Sistema</p>
+      <p class="req-value">Android 5.0+</p>
+    </div>
+    <div class="req-item">
+      <!-- REEMPLAZA con el tamaño real de tu APK -->
+      <p class="req-label">Tamaño</p>
+      <p class="req-value">56.1 MB</p>
+    </div>
+    <div class="req-item">
+      <p class="req-label">Fuente</p>
+      <p class="req-value">animeav1.com</p>
+    </div>
+    <div class="req-item">
+      <!-- REEMPLAZA con la versión actual de tu APK -->
+      <p class="req-label">Versión</p>
+      <p class="req-value">v1.0.3</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ BOTTOM CTA ═══════════════════════════ -->
+<section class="bottom-cta">
+  <h2 class="logo">Anime<span>WF</span></h2>
+  <p>Descárgalo gratis. Inicia con Google. Sin anuncios molestos.</p>
+
+  <!-- ↓↓↓ MISMO LINK QUE ARRIBA ↓↓↓ -->
+  <a class="btn-download" href="TU_LINK_DEL_APK_AQUÍ" download>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    Descargar APK
+  </a>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer>
+  <!-- REEMPLAZA con tu usuario de GitHub -->
+  <p>AnimeWF &nbsp;·&nbsp; Hecho por <a href="https://github.com/jswongfranco" target="_blank">@jswongfranco</a></p>
+</footer>
+
+</body>
+</html>
