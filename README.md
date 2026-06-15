@@ -51,5 +51,5 @@ Todo el contenido pertenece a sus respectivos propietarios. AnimeWF no almacena 
 ---
 
 <div align="center">
-Hecho con ❤️ por <a href="https://github.com/jswongfranco">@jswongfranco</a>
+Hecho con ❤️ por <a href="https://github.com/AnimeWF">@AnimeWF</a>
 </div>
