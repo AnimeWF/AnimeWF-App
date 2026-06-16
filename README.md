@@ -28,7 +28,7 @@ App Android gratuita para ver anime actualizado, construida con Flutter.
 
 Requiere Android 5.0+ · 56.1 MB
 
-👉 [https://AnimeWF.github.io/AnimeWF-App/](https://jswongfranco.github.io/AnimeWF-App/)
+👉 [https://animewf.github.io/AnimeWF-App/](https://animewf.github.io/AnimeWF-App/)
 
 ---
 
