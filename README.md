@@ -2,7 +2,7 @@
 
 # 🎌 AnimeWF
 
-[![Download](https://img.shields.io/badge/⬇️_Descargar_APK-v1.0.4-red?style=for-the-badge)](https://AnimeWF.github.io/AnimeWF-App/)
+[![Download](https://img.shields.io/badge/⬇️_Descargar_APK-v1.1.0-red?style=for-the-badge)](https://AnimeWF.github.io/AnimeWF-App/)
 [![Android](https://img.shields.io/badge/Android-5.0+-green?style=for-the-badge&logo=android)](https://AnimeWF.github.io/AnimeWF-App/)
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
