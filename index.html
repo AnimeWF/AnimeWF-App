@@ -138,7 +138,6 @@
       overflow: hidden;
     }
 
-    /* Animated mesh blobs */
     .hero-blob {
       position: absolute;
       border-radius: 50%;
@@ -165,7 +164,6 @@
       66%      { transform: translate(-40px, 30px) scale(0.95); }
     }
 
-    /* Grain texture overlay */
     .hero::before {
       content: '';
       position: absolute;
@@ -176,7 +174,6 @@
       z-index: 1;
     }
 
-    /* Decorative grid lines */
     .hero::after {
       content: '';
       position: absolute;
@@ -331,7 +328,6 @@
       animation: fadeUp 0.8s 0.5s both;
     }
 
-    /* Scroll indicator */
     .scroll-hint {
       position: absolute;
       bottom: 28px;
@@ -404,7 +400,6 @@
       50%      { transform: translateY(-18px) rotate(1.5deg); }
     }
 
-    /* phone frame */
     .phone-frame {
       position: relative;
       background: linear-gradient(145deg, #2A2A2A, #1A1A1A);
@@ -416,7 +411,6 @@
         0 50px 90px rgba(0,0,0,0.85),
         0 0 80px rgba(231,76,60,0.2);
     }
-    /* Notch */
     .phone-frame::before {
       content: '';
       position: absolute;
@@ -439,7 +433,6 @@
       width: 100%;
       display: block;
     }
-    /* reflection sheen */
     .phone-screen::after {
       content: '';
       position: absolute;
@@ -448,7 +441,6 @@
       pointer-events: none;
     }
 
-    /* glow beneath phone */
     .phone-glow {
       position: absolute;
       bottom: -30px;
@@ -460,7 +452,6 @@
       filter: blur(24px);
     }
 
-    /* decorative floating mini-cards around phone */
     .float-chip {
       position: absolute;
       background: rgba(20,20,20,0.85);
@@ -815,7 +806,7 @@
   <div class="nav-links">
     <a href="#features">Características</a>
     <a href="#download">Descargar</a>
-    <a class="nav-cta" href="https://github.com/AnimeWF/AnimeWF-App/releases/download/v1.1.0/AnimeWF_V1.1.0.apk" download>Obtener APK</a>
+    <a class="nav-cta" href="#" data-fill="url" download>Obtener APK</a>
   </div>
 </nav>
 
@@ -839,7 +830,7 @@
     </p>
 
     <div class="cta-group">
-      <a class="btn-download" href="https://github.com/AnimeWF/AnimeWF-App/releases/download/v1.1.0/AnimeWF_V1.1.0.apk" download>
+      <a class="btn-download" href="#" data-fill="url" download>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <polyline points="7 10 12 15 17 10"/>
@@ -857,9 +848,7 @@
       </a>
     </div>
 
-    <p class="version-note">
-      v1.1.0 &nbsp;·&nbsp; 57.7 MB &nbsp;·&nbsp; Requiere Android 5.0+
-    </p>
+    <p class="version-note" data-fill="version-note"></p>
   </div>
 
   <div class="scroll-hint">
@@ -930,7 +919,6 @@
   </div>
 
   <div class="features-grid">
-
     <div class="feature-card reveal">
       <div class="feature-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -970,7 +958,6 @@
       <p class="feature-title">Cuenta con Google</p>
       <p class="feature-desc">Inicia sesión con tu cuenta Google. Tus favoritos e historial se sincronizan automáticamente.</p>
     </div>
-
   </div>
 </section>
 
@@ -989,7 +976,7 @@
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Tamaño
       </p>
-      <p class="req-value">57.7 MB</p>
+      <p class="req-value" data-fill="size"></p>
     </div>
     <div class="req-item">
       <p class="req-label">
@@ -1003,7 +990,7 @@
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         Versión
       </p>
-      <p class="req-value">v1.1.0</p>
+      <p class="req-value" data-fill="version"></p>
     </div>
   </div>
 </section>
@@ -1014,7 +1001,7 @@
     <h2 class="logo">Anime<span>WF</span></h2>
     <p>Descárgalo gratis. Inicia con Google. Sin anuncios molestos.</p>
 
-    <a class="btn-download" href="https://github.com/AnimeWF/AnimeWF-App/releases/download/v1.1.0/AnimeWF_V1.1.0.apk" download>
+    <a class="btn-download" href="#" data-fill="url" download>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
         <polyline points="7 10 12 15 17 10"/>
@@ -1039,7 +1026,48 @@
 </footer>
 
 <script>
-  // Navbar background on scroll
+  /*
+   * ╔═══════════════════════════════════════════════════════════════╗
+   * ║  CONFIGURACIÓN CENTRALIZADA                                 ║
+   * ║                                                              ║
+   * ║  SOLO CAMBIA ESTOS 3 VALORES CUANDO SUBAS UNA NUEVA VERSIÓN  ║
+   * ║  El resto de la página se actualiza automáticamente.         ║
+   * ╚═══════════════════════════════════════════════════════════════╝
+   */
+  const APP_CONFIG = {
+    version: 'v1.2.0',
+    size:    '57.76 MB',
+    url:     'https://github.com/AnimeWF/AnimeWF-App/releases/download/V1.2.0/AnimeWF_1.2.0.apk'
+  };
+
+  /* ── Inyectar datos en todos los elementos marcados con data-fill ── */
+  document.querySelectorAll('[data-fill]').forEach(el => {
+    const field = el.getAttribute('data-fill');
+
+    switch (field) {
+      /* URL de descarga → se pone como href */
+      case 'url':
+        el.href = APP_CONFIG.url;
+        break;
+
+      /* Texto plano de la versión */
+      case 'version':
+        el.textContent = APP_CONFIG.version;
+        break;
+
+      /* Texto plano del peso */
+      case 'size':
+        el.textContent = APP_CONFIG.size;
+        break;
+
+      /* La línea "v1.1.0 · 57.7 MB · Requiere Android 5.0+" del hero */
+      case 'version-note':
+        el.textContent = APP_CONFIG.version + ' \u00A0·\u00A0 ' + APP_CONFIG.size + ' \u00A0·\u00A0 Requiere Android 5.0+';
+        break;
+    }
+  });
+
+  /* ── Navbar background on scroll ── */
   const nav = document.getElementById('nav');
   const onScroll = () => {
     if (window.scrollY > 40) nav.classList.add('scrolled');
@@ -1048,12 +1076,13 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Reveal on scroll
+  /* ── Reveal on scroll ── */
   const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
+    entries.forEach((e) => {
       if (e.isIntersecting) {
-        // small stagger for grouped items
-        const delay = e.target.closest('.features-grid') ? (Array.from(e.target.parentElement.children).indexOf(e.target) * 80) : 0;
+        const delay = e.target.closest('.features-grid')
+          ? (Array.from(e.target.parentElement.children).indexOf(e.target) * 80)
+          : 0;
         setTimeout(() => e.target.classList.add('in'), delay);
         io.unobserve(e.target);
       }
