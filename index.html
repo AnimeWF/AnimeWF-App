@@ -328,6 +328,49 @@
       animation: fadeUp 0.8s 0.5s both;
     }
 
+    /* ─── TV DOWNLOADER CODE BOX ─── */
+    .tv-code-box {
+      margin-top: 20px;
+      background: rgba(20,20,20,0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      backdrop-filter: blur(8px);
+      animation: fadeUp 0.8s 0.6s both;
+    }
+    .tv-code-box svg {
+      color: var(--red-light);
+      flex-shrink: 0;
+    }
+    .tv-code-box p {
+      font-size: 13px;
+      color: var(--white-dim);
+      text-align: left;
+      line-height: 1.5;
+    }
+    .tv-code-box strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+    .tv-code-box .code {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin: 0 4px;
+      box-shadow: 0 0 12px rgba(231,76,60,0.4);
+    }
+    @media (max-width: 600px) {
+      .tv-code-box { flex-direction: column; text-align: center; }
+      .tv-code-box p { text-align: center; }
+    }
+
     .scroll-hint {
       position: absolute;
       bottom: 28px;
@@ -378,6 +421,9 @@
       padding: 100px 24px 120px;
       display: flex;
       justify-content: center;
+      align-items: center;
+      gap: 80px;
+      flex-wrap: wrap;
       overflow: hidden;
     }
     .mockup-section::before {
@@ -385,15 +431,17 @@
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(231,76,60,0.12), transparent 65%);
+      width: 800px; height: 600px;
+      background: radial-gradient(circle, rgba(231,76,60,0.1), transparent 65%);
       pointer-events: none;
     }
 
+    /* Phone Wrapper */
     .mockup-wrap {
       position: relative;
       width: 270px;
       animation: floatPhone 6s ease-in-out infinite;
+      z-index: 2;
     }
     @keyframes floatPhone {
       0%, 100% { transform: translateY(0) rotate(-1.5deg); }
@@ -492,6 +540,83 @@
     }
     @media (max-width: 700px) {
       .float-chip { display: none; }
+    }
+
+    /* TV Wrapper */
+    .tv-mockup-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 550px;
+      animation: floatTV 7s ease-in-out infinite;
+      z-index: 2;
+    }
+    @keyframes floatTV {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-14px); }
+    }
+    .tv-frame {
+      background: #050505;
+      border: 12px solid #1a1a1a;
+      border-radius: 16px;
+      box-shadow: 
+        0 0 0 2px #2a2a2a, 
+        0 40px 80px rgba(0,0,0,0.9), 
+        0 0 80px rgba(231,76,60,0.15);
+      padding: 8px;
+      position: relative;
+    }
+    .tv-screen {
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+    }
+    .tv-screen img {
+      width: 100%;
+      display: block;
+    }
+    .tv-screen::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(125deg, rgba(255,255,255,0.08) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .tv-stand {
+      width: 140px;
+      height: 50px;
+      background: linear-gradient(180deg, #1a1a1a, #050505);
+      margin: 0 auto;
+      clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+      border-radius: 0 0 4px 4px;
+    }
+    .tv-glow {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 380px;
+      height: 80px;
+      background: radial-gradient(ellipse, rgba(231,76,60,0.35) 0%, transparent 70%);
+      filter: blur(30px);
+      z-index: -1;
+    }
+    
+    .tv-badge {
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        background: var(--red);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        box-shadow: 0 8px 20px rgba(192,57,43,0.5);
+        z-index: 5;
+        animation: pulse 3s infinite;
     }
 
     /* ─── STATS BAR ─────────────────────────────────────── */
@@ -789,7 +914,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .badge-dot, .mockup-wrap, .float-chip, .hero-blob, .scroll-hint .mouse::after { animation: none; }
+      .badge-dot, .mockup-wrap, .tv-mockup-wrap, .float-chip, .hero-blob, .scroll-hint .mouse::after, .tv-badge { animation: none; }
       .btn-download, .btn-secondary, .feature-card { transition: none; }
       .reveal { opacity: 1; transform: none; }
     }
@@ -818,7 +943,7 @@
   <div class="hero-content">
     <span class="badge">
       <span class="badge-dot"></span>
-      Android App — Disponible ahora
+      v2.0.0 — Ahora con Android TV
     </span>
 
     <h1 class="logo">Anime<span>WF</span></h1>
@@ -849,6 +974,18 @@
     </div>
 
     <p class="version-note" data-fill="version-note"></p>
+
+    <!-- CÓDIGO PARA DOWNLOADER DE TV -->
+    <div class="tv-code-box">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
+        <polyline points="17 2 12 7 7 2"/>
+      </svg>
+      <p>
+        ¿Usas Android TV? Descarga la app con la aplicación <strong>Downloader</strong> usando el código:
+        <span class="code" data-fill="tvCode">123456</span>
+      </p>
+    </div>
   </div>
 
   <div class="scroll-hint">
@@ -857,8 +994,10 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════ MOCKUP ═══════════════════════════ -->
+<!-- ═══════════════════════════ MOCKUPS ═══════════════════════════ -->
 <section class="mockup-section">
+  
+  <!-- CELULAR -->
   <div class="mockup-wrap">
     <div class="float-chip c1">
       <span class="ic">
@@ -881,11 +1020,24 @@
 
     <div class="phone-frame">
       <div class="phone-screen">
-        <img src="screenshot.png" alt="Captura de AnimeWF" />
+        <img src="screenshot.png" alt="Captura de AnimeWF en Móvil" />
       </div>
     </div>
     <div class="phone-glow"></div>
   </div>
+
+  <!-- TV -->
+  <div class="tv-mockup-wrap">
+    <div class="tv-badge">Nuevo: Android TV</div>
+    <div class="tv-frame">
+      <div class="tv-screen">
+        <img src="screenshot_androidtv.png" alt="Captura de AnimeWF en Android TV" />
+      </div>
+    </div>
+    <div class="tv-stand"></div>
+    <div class="tv-glow"></div>
+  </div>
+
 </section>
 
 <!-- ═══════════════════════════ STATS ═══════════════════════════ -->
@@ -922,6 +1074,17 @@
     <div class="feature-card reveal">
       <div class="feature-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
+          <polyline points="17 2 12 7 7 2"/>
+        </svg>
+      </div>
+      <p class="feature-title">Soporte para Android TV</p>
+      <p class="feature-desc">Disfruta en la pantalla grande. Navegación optimizada con control remoto y reproductor adaptado.</p>
+    </div>
+
+    <div class="feature-card reveal">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
         </svg>
       </div>
@@ -937,16 +1100,6 @@
       </div>
       <p class="feature-title">Explorar catálogo</p>
       <p class="feature-desc">Busca entre cientos de títulos por género, temporada o popularidad.</p>
-    </div>
-
-    <div class="feature-card reveal">
-      <div class="feature-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-        </svg>
-      </div>
-      <p class="feature-title">Horario semanal</p>
-      <p class="feature-desc">Consulta qué animes se emiten cada día para no perderte ningún estreno.</p>
     </div>
 
     <div class="feature-card reveal">
@@ -969,7 +1122,7 @@
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
         Sistema
       </p>
-      <p class="req-value">Android 5.0+</p>
+      <p class="req-value">Android 5.0+ / TV</p>
     </div>
     <div class="req-item">
       <p class="req-label">
@@ -1030,14 +1183,15 @@
    * ╔═══════════════════════════════════════════════════════════════╗
    * ║  CONFIGURACIÓN CENTRALIZADA                                 ║
    * ║                                                              ║
-   * ║  SOLO CAMBIA ESTOS 3 VALORES CUANDO SUBAS UNA NUEVA VERSIÓN  ║
+   * ║  SOLO CAMBIA ESTOS VALORES CUANDO SUBAS UNA NUEVA VERSIÓN    ║
    * ║  El resto de la página se actualiza automáticamente.         ║
    * ╚═══════════════════════════════════════════════════════════════╝
    */
   const APP_CONFIG = {
-    version: 'v1.2.0',
-    size:    '57.76 MB',
-    url:     'https://github.com/AnimeWF/AnimeWF-App/releases/download/V1.2.0/AnimeWF_1.2.0.apk'
+    version: 'v2.0.0',
+    size:    '65.2 MB', // Actualiza este peso si lo deseas
+    url:     'https://github.com/AnimeWF/AnimeWF-App/releases/download/V2.0.0/AnimeWF_2.0.0.apk',
+    tvCode:  '123456'  // ← Cambia este código cada vez que subas un archivo a Downloader
   };
 
   /* ── Inyectar datos en todos los elementos marcados con data-fill ── */
@@ -1060,9 +1214,14 @@
         el.textContent = APP_CONFIG.size;
         break;
 
-      /* La línea "v1.1.0 · 57.7 MB · Requiere Android 5.0+" del hero */
+      /* La línea "v2.0.0 · 65.2 MB · Requiere Android 5.0+" del hero */
       case 'version-note':
-        el.textContent = APP_CONFIG.version + ' \u00A0·\u00A0 ' + APP_CONFIG.size + ' \u00A0·\u00A0 Requiere Android 5.0+';
+        el.textContent = APP_CONFIG.version + ' \u00A0·\u00A0 ' + APP_CONFIG.size + ' \u00A0·\u00A0 Requiere Android 5.0+ / TV';
+        break;
+        
+      /* Código para la app Downloader de Android TV */
+      case 'tvCode':
+        el.textContent = APP_CONFIG.tvCode;
         break;
     }
   });
