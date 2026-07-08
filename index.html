@@ -422,7 +422,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 80px;
+      gap: 60px; /* Espacio base (para pantallas pequeñas/tablets) */
       flex-wrap: wrap;
       overflow: hidden;
     }
@@ -434,6 +434,13 @@
       width: 800px; height: 600px;
       background: radial-gradient(circle, rgba(231,76,60,0.1), transparent 65%);
       pointer-events: none;
+    }
+
+    /* NUEVO: Separación amplia exclusiva para pantallas grandes (TV/Escritorio) */
+    @media (min-width: 900px) {
+      .mockup-section {
+        gap: 120px; 
+      }
     }
 
     /* Phone Wrapper */
