@@ -455,16 +455,17 @@
       50%      { transform: translateY(-18px) rotate(1.5deg); }
     }
 
+    /* MODIFICADO: marco más claro + anillo rojo + glow más fuerte para que no se pierda contra el fondo oscuro */
     .phone-frame {
       position: relative;
-      background: linear-gradient(145deg, #2A2A2A, #1A1A1A);
+      background: linear-gradient(145deg, #3D3D3D, #202020);
       border-radius: 44px;
       padding: 14px;
       box-shadow:
-        0 0 0 2px #2A2A2A,
-        0 0 0 3px rgba(255,255,255,0.04),
+        0 0 0 2px #3D3D3D,
+        0 0 0 3px rgba(231,76,60,0.25),
         0 50px 90px rgba(0,0,0,0.85),
-        0 0 80px rgba(231,76,60,0.2);
+        0 0 60px rgba(231,76,60,0.45);
     }
     .phone-frame::before {
       content: '';
@@ -496,15 +497,16 @@
       pointer-events: none;
     }
 
+    /* MODIFICADO: glow más intenso y amplio para separar el celular del fondo */
     .phone-glow {
       position: absolute;
       bottom: -30px;
       left: 50%;
       transform: translateX(-50%);
-      width: 220px;
-      height: 60px;
-      background: radial-gradient(ellipse, rgba(231,76,60,0.45) 0%, transparent 70%);
-      filter: blur(24px);
+      width: 260px;
+      height: 70px;
+      background: radial-gradient(ellipse, rgba(231,76,60,0.6) 0%, transparent 70%);
+      filter: blur(20px);
     }
 
     .float-chip {
@@ -561,14 +563,17 @@
       0%, 100% { transform: translateY(0); }
       50%      { transform: translateY(-14px); }
     }
+
+    /* MODIFICADO: borde más claro + anillo rojo + glow más fuerte para que no se pierda contra el fondo oscuro */
     .tv-frame {
       background: #050505;
-      border: 12px solid #1a1a1a;
+      border: 12px solid #2E2E2E;
       border-radius: 16px;
       box-shadow: 
-        0 0 0 2px #2a2a2a, 
+        0 0 0 2px #3D3D3D,
+        0 0 0 3px rgba(231,76,60,0.25),
         0 40px 80px rgba(0,0,0,0.9), 
-        0 0 80px rgba(231,76,60,0.15);
+        0 0 60px rgba(231,76,60,0.4);
       padding: 8px;
       position: relative;
     }
@@ -597,15 +602,17 @@
       clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
       border-radius: 0 0 4px 4px;
     }
+
+    /* MODIFICADO: glow más intenso y amplio para separar la TV del fondo */
     .tv-glow {
       position: absolute;
       bottom: -40px;
       left: 50%;
       transform: translateX(-50%);
-      width: 380px;
-      height: 80px;
-      background: radial-gradient(ellipse, rgba(231,76,60,0.35) 0%, transparent 70%);
-      filter: blur(30px);
+      width: 420px;
+      height: 90px;
+      background: radial-gradient(ellipse, rgba(231,76,60,0.5) 0%, transparent 70%);
+      filter: blur(28px);
       z-index: -1;
     }
     
