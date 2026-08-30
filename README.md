@@ -22,7 +22,7 @@
 App Android gratuita para ver anime actualizado, construida con Flutter.
 
 <!-- ── ⬇️ Badges de la versión (edítalos aquí) ── -->
-[![Descargar APK](https://img.shields.io/badge/⬇️_Descargar_APK-v2.1.0-E74C3C?style=for-the-badge)](https://raw.githubusercontent.com/AnimeWF/AnimeWF-App/main/APK/AnimeWF_2.1.0.apk)
+[![Descargar APK](https://img.shields.io/badge/⬇️_Descargar_APK-v2.1.1-E74C3C?style=for-the-badge)](https://raw.githubusercontent.com/AnimeWF/AnimeWF-App/main/APK/AnimeWF_2.1.1.apk)
 [![Android](https://img.shields.io/badge/Android-5.0%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://animewf.github.io/AnimeWF-App/)
 [![Android TV](https://img.shields.io/badge/📺_Android_TV-Compatible-0A0A0A?style=for-the-badge&logo=android&logoColor=E74C3C)](#-android-tv)
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
@@ -31,7 +31,7 @@ App Android gratuita para ver anime actualizado, construida con Flutter.
 <!-- ── ⬇️ Tabla de datos de la versión (edítala aquí) ── -->
 | 📦 Versión | 💾 Tamaño | 🤖 Sistema | 📺 Código Downloader (TV) | 📥 APK directo |
 |:----------:|:---------:|:----------:|:-------------------------:|:--------------:|
-| **v2.1.0** | 67.5 MB   | Android 5.0+ / TV | **6731463** | [Descargar](https://raw.githubusercontent.com/AnimeWF/AnimeWF-App/main/APK/AnimeWF_2.1.0.apk) |
+| **v2.1.1** | 69 MB   | Android 5.0+ / TV | **6731463** | [Descargar](https://raw.githubusercontent.com/AnimeWF/AnimeWF-App/main/APK/AnimeWF_2.1.1.apk) |
 
 </div>
 
